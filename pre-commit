@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+
+<?php
+
+$php_cs_path = './vendor/bin/php-cs-fixer';
+
+exec('git diff --cached --name-status --diff-filter=ACM', $output);
+foreach ($output as $file) {
+    $fileName = trim(substr($file, 1));
+    /*
+     * Only PHP file
+     */
+    if ('php' == pathinfo($fileName, PATHINFO_EXTENSION)) {
+        /**
+         * Check for error.
+         */
+        $lint_output = [];
+        exec('php -l '.escapeshellarg($fileName), $lint_output, $return);
+        if (0 == $return) {
+            /*
+             * PHP-CS-Fixer && add it back
+             */
+            exec("{$php_cs_path} fix {$fileName} --config=.php_cs.dist; git add {$fileName}");
+        } else {
+            echo implode("\n", $lint_output), "\n";
+
+            exit(1);
+        }
+    }
+}
+exit(0);

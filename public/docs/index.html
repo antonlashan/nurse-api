@@ -1,0 +1,6177 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://api.icm.lk/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Admin</h1>
+<!-- START_0ec26795c9024df15412a7168f2860e7 -->
+<h2>User list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/users" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/users");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 5
+        },
+        "list": [
+            {
+                "user_detail_first_name": "Admin",
+                "user_detail_last_name": "",
+                "user_detail_nic": "",
+                "user_detail_gender": "male",
+                "id": 1,
+                "email": "admin@nurse.com",
+                "mobile_no": "1234567890",
+                "role": "admin",
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-18 09:46:08"
+            },
+            {
+                "user_detail_first_name": "Sean",
+                "user_detail_last_name": "Marshall",
+                "user_detail_nic": "",
+                "user_detail_gender": "male",
+                "id": 2,
+                "email": "client@nurse.com",
+                "mobile_no": "1234567891",
+                "role": "client",
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-16 11:41:48"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/users</code></p>
+<!-- END_0ec26795c9024df15412a7168f2860e7 -->
+<!-- START_dc4fcf514c4df98c66515b9d1f7f47f1 -->
+<h2>User get profile.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/users/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/users/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "first_name": "Lashan",
+        "last_name": "Fernando",
+        "nic": "198516003220",
+        "gender": "male",
+        "dob": "1985-06-08",
+        "birth_district_id": 2,
+        "highest_edu_qualification": "Bsc",
+        "current_work_place": "Negombo",
+        "registration_no": "123356778",
+        "created_at": "2019-07-02 09:37:20",
+        "updated_at": "2019-07-02 11:32:54",
+        "user_qualifications": {
+            "a_level": [
+                {
+                    "id": 28,
+                    "name": "Maths",
+                    "grade": "A",
+                    "type": "a_level"
+                },
+                {
+                    "id": 29,
+                    "name": "Physics",
+                    "grade": "B",
+                    "type": "a_level"
+                },
+                {
+                    "id": 30,
+                    "name": "Chemistry",
+                    "grade": "C",
+                    "type": "a_level"
+                }
+            ],
+            "o_level": [
+                {
+                    "id": 31,
+                    "name": "Sinhala",
+                    "grade": "A",
+                    "type": "o_level"
+                },
+                {
+                    "id": 32,
+                    "name": "Maths",
+                    "grade": "A",
+                    "type": "o_level"
+                },
+                {
+                    "id": 33,
+                    "name": "Science",
+                    "grade": "B",
+                    "type": "o_level"
+                },
+                {
+                    "id": 34,
+                    "name": "English",
+                    "grade": "C",
+                    "type": "o_level"
+                }
+            ],
+            "professional": [
+                {
+                    "id": 35,
+                    "name": "SCJP",
+                    "grade": "pass",
+                    "type": "professional"
+                },
+                {
+                    "id": 36,
+                    "name": "IELTS",
+                    "grade": "pass",
+                    "type": "professional"
+                }
+            ],
+            "vtc": [
+                {
+                    "id": 37,
+                    "name": "VTC exam 1",
+                    "grade": "pass",
+                    "type": "vtc"
+                },
+                {
+                    "id": 38,
+                    "name": "VTC exam 2",
+                    "grade": "pass",
+                    "type": "vtc"
+                }
+            ]
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/users/{id}</code></p>
+<!-- END_dc4fcf514c4df98c66515b9d1f7f47f1 -->
+<!-- START_2248abc9f8f5bb1f23dea3d82883b799 -->
+<h2>User delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/users/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/users/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/users/{id}</code></p>
+<!-- END_2248abc9f8f5bb1f23dea3d82883b799 -->
+<!-- START_a3f30efc3a2cdda0fcddae64e8ed4e19 -->
+<h2>User change password.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/users/update-pwd" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"password_current":"ullam","password":"eum","password_confirmation":"commodi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/users/update-pwd");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "password_current": "ullam",
+    "password": "eum",
+    "password_confirmation": "commodi"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Password updated successfully.",
+    "data": null
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Current password not matched.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/users/update-pwd</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password_current</td>
+<td>string</td>
+<td>required</td>
+<td>Current password.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>New password.</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>string</td>
+<td>required</td>
+<td>Confirmation password.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a3f30efc3a2cdda0fcddae64e8ed4e19 -->
+<!-- START_cf1945fb27a8730750dec8e607ec0709 -->
+<h2>Company list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/companies" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/companies");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "company 1",
+            "logo": "http:\/\/api.icm.lk\/images\/company\/1561291227.jpg",
+            "banner": "http:\/\/api.icm.lk\/images\/company\/2561291227.jpg",
+            "address": "addresss",
+            "email": "sample@gmail.com",
+            "phone": "23434343",
+            "created_at": "2019-06-23 12:00:27",
+            "updated_at": "2019-06-23 12:00:27"
+        },
+        {
+            "id": 2,
+            "name": "Lit solutions",
+            "logo": "http:\/\/api.icm.lk\/images\/company\/1561291480.jpg",
+            "banner": "http:\/\/api.icm.lk\/images\/company\/2561291480.jpg",
+            "address": "Cecilia Chapman\n711-2880 Nulla St.",
+            "email": "sample@gmail.com",
+            "phone": "(257) 563-7401",
+            "created_at": "2019-06-23 12:04:40",
+            "updated_at": "2019-06-23 12:04:40"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/companies</code></p>
+<!-- END_cf1945fb27a8730750dec8e607ec0709 -->
+<!-- START_655e2db0c3c3cab6f22e59fd27489afd -->
+<h2>Company get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/companies/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/companies/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 2,
+        "name": "roserbery",
+        "logo": "http:\/\/api.icm.lk\/images\/company\/1561359160.jpg",
+        "banner": "http:\/\/api.icm.lk\/images\/company\/2561359160.jpg",
+        "address": "21, Rosersbergsvägen 34",
+        "phone": "+46761001562",
+        "email": "antonlashan@gmail.com",
+        "created_at": "2019-06-24 06:52:40",
+        "updated_at": "2019-06-24 06:52:40"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/companies/{id}</code></p>
+<!-- END_655e2db0c3c3cab6f22e59fd27489afd -->
+<!-- START_d38a13ed23d2811f2bddfbcefa81f772 -->
+<h2>Company create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/companies" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"quos","address":"earum","phone":"ab","logo":"sunt","banner":"in","email":"modi"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/companies");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "quos",
+    "address": "earum",
+    "phone": "ab",
+    "logo": "sunt",
+    "banner": "in",
+    "email": "modi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "name": "Lit solutions",
+        "address": "Cecilia Chapman\n711-2880 Nulla St.",
+        "phone": "(257) 563-7401",
+        "email": "sample@gmail.com",
+        "logo": "http:\/\/api.icm.lk\/images\/company\/1561291480.jpg",
+        "banner": "http:\/\/api.icm.lk\/images\/company\/3361291480.jpg",
+        "updated_at": "2019-06-23 12:04:40",
+        "created_at": "2019-06-23 12:04:40",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/companies</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Name.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>required</td>
+<td>Address.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>required</td>
+<td>Phone.</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d38a13ed23d2811f2bddfbcefa81f772 -->
+<!-- START_b2251241d254eb4792eb049943a48e45 -->
+<h2>Company update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/companies/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"molestiae","address":"ea","phone":"qui","logo":"impedit","banner":"suscipit","email":"enim"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/companies/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "molestiae",
+    "address": "ea",
+    "phone": "qui",
+    "logo": "impedit",
+    "banner": "suscipit",
+    "email": "enim"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": null
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "phone": [
+            "The phone field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/companies/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Name.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>required</td>
+<td>Address.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>required</td>
+<td>Phone.</td>
+</tr>
+<tr>
+<td>logo</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b2251241d254eb4792eb049943a48e45 -->
+<!-- START_82b1a7c76dcb14b061380dc9dc5117fa -->
+<h2>Company delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/companies/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/companies/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/companies/{id}</code></p>
+<!-- END_82b1a7c76dcb14b061380dc9dc5117fa -->
+<!-- START_f9de553952a5e1e2323db26adf2910a5 -->
+<h2>CompanyPost list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/company-posts" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts");
+
+    let params = {
+            "page": "explicabo",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 2
+        },
+        "list": [
+            {
+                "company_name": "Asiri Hospital Holdings Pvt Ltd",
+                "company_address": "Colombo 5",
+                "id": 1,
+                "company_id": 1,
+                "position": "Nurse (Female\/Male) - Colombo 5",
+                "description": "description",
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-10 13:14:12"
+            },
+            {
+                "company_name": "Wellfort Management Pvt Ltd",
+                "company_address": "Colombo",
+                "id": 2,
+                "company_id": 2,
+                "position": "Female Executive - Nugegoda",
+                "description": "Executive - Operations",
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-10 13:14:12"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/company-posts</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f9de553952a5e1e2323db26adf2910a5 -->
+<!-- START_62e8a21a22010925572c8b13d0701d17 -->
+<h2>CompanyPost get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/company-posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "company_id": "1",
+        "position": "test",
+        "description": "test",
+        "updated_at": "2019-06-24 07:19:23",
+        "created_at": "2019-06-24 07:19:23"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/company-posts/{id}</code></p>
+<!-- END_62e8a21a22010925572c8b13d0701d17 -->
+<!-- START_88399c26866f09f75611240f61e8bc84 -->
+<h2>CompanyPost create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/company-posts" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"company_id":3,"position":"incidunt","description":"ut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "company_id": 3,
+    "position": "incidunt",
+    "description": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "company_id": "1",
+        "position": "test",
+        "description": "test",
+        "updated_at": "2019-06-24 07:19:23",
+        "created_at": "2019-06-24 07:19:23"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/company-posts</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Company ID.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>string</td>
+<td>required</td>
+<td>Position label.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>text</td>
+<td>required</td>
+<td>Description.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_88399c26866f09f75611240f61e8bc84 -->
+<!-- START_862ef0a0f702739be215a4615b13d465 -->
+<h2>CompanyPost update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/company-posts/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"company_id":14,"position":"aut","description":"quis"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "company_id": 14,
+    "position": "aut",
+    "description": "quis"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/company-posts/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Company ID.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>string</td>
+<td>required</td>
+<td>Position label.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>text</td>
+<td>required</td>
+<td>Description.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_862ef0a0f702739be215a4615b13d465 -->
+<!-- START_22b453d14ff90a3f1ead2a52c93c8553 -->
+<h2>CompanyPost delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/company-posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/company-posts/{id}</code></p>
+<!-- END_22b453d14ff90a3f1ead2a52c93c8553 -->
+<!-- START_fd0e108518c7cb476608d19e525aadae -->
+<h2>CompanyPostApplicantController list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/company-posts/1/applicants" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts/1/applicants");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 3,
+            "user_id": 3,
+            "status": "reject",
+            "first_name": "John",
+            "last_name": "Edmunds",
+            "email": "john.edmunds@nurse.com",
+            "mobile_no": "+94775186152",
+            "status_lbl": "Rejected"
+        },
+        {
+            "id": 5,
+            "user_id": 5,
+            "status": "reject",
+            "first_name": "Rebecca",
+            "last_name": "Hunter",
+            "email": "rebecca.hunter@nurse.com",
+            "mobile_no": "+94775186150",
+            "status_lbl": "Rejected"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/company-posts/{id}/applicants</code></p>
+<!-- END_fd0e108518c7cb476608d19e525aadae -->
+<!-- START_00b2e065cbadb932ec70d37f5e9e6ddb -->
+<h2>CompanyPostApplicantController send message.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/company-posts/1/applicants/send-msg" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-posts/1/applicants/send-msg");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/company-posts/{id}/applicants/send-msg</code></p>
+<!-- END_00b2e065cbadb932ec70d37f5e9e6ddb -->
+<!-- START_d625c97e0b6fe7815eb8ecd4ecf862e9 -->
+<h2>Advertisement list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/advertisements" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/advertisements");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "company 1",
+            "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291227.jpg",
+            "created_at": "2019-06-23 12:00:27",
+            "updated_at": "2019-06-23 12:00:27"
+        },
+        {
+            "id": 2,
+            "name": "Lit solutions",
+            "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291480.jpg",
+            "created_at": "2019-06-23 12:04:40",
+            "updated_at": "2019-06-23 12:04:40"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/advertisements</code></p>
+<!-- END_d625c97e0b6fe7815eb8ecd4ecf862e9 -->
+<!-- START_c3a177567ab43cdb440e904c320e5f29 -->
+<h2>Advertisement get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/advertisements/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/advertisements/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 2,
+        "name": "roserbery",
+        "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291480.jpg",
+        "created_at": "2019-06-24 06:52:40",
+        "updated_at": "2019-06-24 06:52:40"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/advertisements/{id}</code></p>
+<!-- END_c3a177567ab43cdb440e904c320e5f29 -->
+<!-- START_8f88fe4b6731e6a7984aba23112efb16 -->
+<h2>Advertisement create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/advertisements" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"voluptatibus","image":"eum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/advertisements");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "voluptatibus",
+    "image": "eum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "name": "Lit solutions",
+        "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291480.jpg",
+        "updated_at": "2019-06-23 12:04:40",
+        "created_at": "2019-06-23 12:04:40",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/advertisements</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8f88fe4b6731e6a7984aba23112efb16 -->
+<!-- START_84ebfb508feed88ed5c9ba1db544e904 -->
+<h2>Advertisement update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/advertisements/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"sint","image":"in"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/advertisements/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "sint",
+    "image": "in"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/advertisements/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_84ebfb508feed88ed5c9ba1db544e904 -->
+<!-- START_1d1219e789ca6d7c5a809c391fb070ed -->
+<h2>Advertisement delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/advertisements/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/advertisements/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/advertisements/{id}</code></p>
+<!-- END_1d1219e789ca6d7c5a809c391fb070ed -->
+<!-- START_9abf8cc4e04509725496ac19db87da43 -->
+<h2>CompanyPostBookmark list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/company-post-bookmarks" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-post-bookmarks");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 2
+        },
+        "list": [
+            {
+                "id": 1,
+                "user_id": 2,
+                "first_name": "Sean",
+                "last_name": "Marshall",
+                "position": "Nurse (Female\/Male) - Colombo 5",
+                "company_name": "Asiri Hospital Holdings Pvt Ltd"
+            },
+            {
+                "id": 2,
+                "user_id": 2,
+                "first_name": "Sean",
+                "last_name": "Marshall",
+                "position": "Female Executive - Nugegoda",
+                "company_name": "Wellfort Management Pvt Ltd"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/company-post-bookmarks</code></p>
+<!-- END_9abf8cc4e04509725496ac19db87da43 -->
+<!-- START_589b458abad0cc8dfed692e8e5ba8b22 -->
+<h2>CompanyPostApplication list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/company-post-applications" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-post-applications");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 5
+        },
+        "list": [
+            {
+                "id": 1,
+                "user_id": 2,
+                "status": "pending",
+                "first_name": "Sean",
+                "last_name": "Marshall",
+                "position": "Nurse (Female\/Male) - Colombo 5",
+                "company_name": "Asiri Hospital Holdings Pvt Ltd"
+            },
+            {
+                "id": 2,
+                "user_id": 3,
+                "status": "pending",
+                "first_name": "John",
+                "last_name": "Edmunds",
+                "position": "Female Executive - Nugegoda",
+                "company_name": "Wellfort Management Pvt Ltd"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/company-post-applications</code></p>
+<!-- END_589b458abad0cc8dfed692e8e5ba8b22 -->
+<!-- START_47bbd694517925e152280a81e35fdd84 -->
+<h2>CompanyPostApplication update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/company-post-applications/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"status":"corrupti"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/company-post-applications/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "status": "corrupti"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successfully updated.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/company-post-applications/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>required</td>
+<td>'pending' or 'accept' or 'reject'.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_47bbd694517925e152280a81e35fdd84 -->
+<!-- START_a8364f84d782a7a6659b0bf7bdaefd50 -->
+<h2>News list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/news" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/news");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 10,
+            "total": 2
+        },
+        "list": [
+            {
+                "id": 1,
+                "title": "Hemasiri, Pujith further remanded",
+                "desc_1": "&lt;p&gt;Former Defence Secretary Hemasiri Fernando and IGP Pujith Jayasundara, who were arrested by the CID at the Colombo National Hospital yesterday, were further remanded until July 9 by Colombo Chief Magistrate Lanka Jayaratne.&lt;\/p&gt;",
+                "desc_2": "&lt;p&gt;Former Defence Secretary Hemasiri Fernando and IGP Pujith Jayasundara, who were arrested by the CID at the Colombo National Hospital yesterday, were further remanded until July 9 by Colombo Chief Magistrate Lanka Jayaratne. (Shehan Chamika Silva)&lt;\/p&gt;",
+                "image": "http:\/\/api.icm.lk\/images\/news\/333333.jpg",
+                "is_featured": false,
+                "created_at": "2019-07-03 13:32:33",
+                "updated_at": "2019-07-03 13:59:37"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/news</code></p>
+<!-- END_a8364f84d782a7a6659b0bf7bdaefd50 -->
+<!-- START_f160533450ff28329b55e21353474519 -->
+<h2>News get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/news/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/news/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful!",
+    "data": {
+        "title": "Leaving for UN missions",
+        "desc_1": "&lt;p&gt;A new contingent of 61 Army personnel including 11officers under the phase six of the UN Mission of South Sudan (UNMISS),&amp;nbsp;&lt;\/p&gt;",
+        "desc_2": "&lt;p&gt;left this morning for South Sudan to serve in the SRIMED Level 2 Hospital in Bor, South Sudan.&lt;strong&gt; Pix by Army Media&lt;\/strong&gt;&lt;\/p&gt;",
+        "is_featured": false,
+        "image": "http:\/\/api.icm.lk\/images\/news\/15621633705d1cb8aaa831d.jpg",
+        "updated_at": "2019-07-03 14:16:10",
+        "created_at": "2019-07-03 14:16:10",
+        "id": 3
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/news/{id}</code></p>
+<!-- END_f160533450ff28329b55e21353474519 -->
+<!-- START_194f4b645aa8bedae57b2d52055b118e -->
+<h2>News create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/news" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"image":"tenetur","title":"dignissimos","desc_1":"aut","desc_2":"officia","banner":"sunt","is_featured":true}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/news");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "image": "tenetur",
+    "title": "dignissimos",
+    "desc_1": "aut",
+    "desc_2": "officia",
+    "banner": "sunt",
+    "is_featured": true
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "title": "Leaving for UN missions",
+        "desc_1": "&lt;p&gt;A new contingent of 61 Army personnel including 11officers under the phase six of the UN Mission of South Sudan (UNMISS),&amp;nbsp;&lt;\/p&gt;",
+        "desc_2": "&lt;p&gt;left this morning for South Sudan to serve in the SRIMED Level 2 Hospital in Bor, South Sudan.&lt;strong&gt; Pix by Army Media&lt;\/strong&gt;&lt;\/p&gt;",
+        "is_featured": false,
+        "image": "http:\/\/api.icm.lk\/images\/news\/15621633705d1cb8aaa831d.jpg",
+        "updated_at": "2019-07-03 14:16:10",
+        "created_at": "2019-07-03 14:16:10",
+        "id": 3
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/news</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>required</td>
+<td>Title.</td>
+</tr>
+<tr>
+<td>desc_1</td>
+<td>string</td>
+<td>required</td>
+<td>Description 1.</td>
+</tr>
+<tr>
+<td>desc_2</td>
+<td>string</td>
+<td>optional</td>
+<td>Description 2.</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>is_featured</td>
+<td>boolean</td>
+<td>required</td>
+<td>Featured.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_194f4b645aa8bedae57b2d52055b118e -->
+<!-- START_e7bc894f4be6d316384ccd9909cde859 -->
+<h2>News update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/news/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"image":"rerum","title":"qui","desc_1":"voluptas","desc_2":"ut","banner":"molestiae","is_featured":true}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/news/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "image": "rerum",
+    "title": "qui",
+    "desc_1": "voluptas",
+    "desc_2": "ut",
+    "banner": "molestiae",
+    "is_featured": true
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": true
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "phone": [
+            "The phone field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/news/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>required</td>
+<td>Title.</td>
+</tr>
+<tr>
+<td>desc_1</td>
+<td>string</td>
+<td>required</td>
+<td>Description 1.</td>
+</tr>
+<tr>
+<td>desc_2</td>
+<td>string</td>
+<td>optional</td>
+<td>Description 2.</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>is_featured</td>
+<td>boolean</td>
+<td>required</td>
+<td>Featured.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e7bc894f4be6d316384ccd9909cde859 -->
+<!-- START_f4352f87baea16a69f22679c2c5f68e8 -->
+<h2>News delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/news/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/news/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/news/{id}</code></p>
+<!-- END_f4352f87baea16a69f22679c2c5f68e8 -->
+<!-- START_9e3411f722871fce5aaceea7fb3edfb8 -->
+<h2>PostCategory list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/post-categories" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-categories");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "Cat 3",
+            "created_at": "2019-07-04 13:40:19",
+            "updated_at": "2019-07-04 13:43:56"
+        },
+        {
+            "id": 2,
+            "name": "Cate 2",
+            "created_at": "2019-07-04 13:47:33",
+            "updated_at": "2019-07-04 13:47:33"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/post-categories</code></p>
+<!-- END_9e3411f722871fce5aaceea7fb3edfb8 -->
+<!-- START_bf94e6d0a70a32dcc6a1002361c589b6 -->
+<h2>PostCategory get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/post-categories/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-categories/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "name": "Cat 3",
+        "created_at": "2019-07-04 13:40:19",
+        "updated_at": "2019-07-04 13:43:56"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/post-categories/{id}</code></p>
+<!-- END_bf94e6d0a70a32dcc6a1002361c589b6 -->
+<!-- START_260a95948451267ba8f673321352ab56 -->
+<h2>PostCategory create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/post-categories" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"quam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-categories");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "quam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "name": "Cate 2",
+        "updated_at": "2019-07-04 13:47:33",
+        "created_at": "2019-07-04 13:47:33",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/post-categories</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_260a95948451267ba8f673321352ab56 -->
+<!-- START_4a5e081cedb1c741d2324b4023304a5c -->
+<h2>PostCategory update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/post-categories/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"explicabo"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-categories/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "explicabo"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": {
+        "id": 1,
+        "name": "Cat 3",
+        "created_at": "2019-07-04 13:40:19",
+        "updated_at": "2019-07-04 13:43:56"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/post-categories/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4a5e081cedb1c741d2324b4023304a5c -->
+<!-- START_cd2ccdb1b3ec5eaa77a3bb4d2372b57e -->
+<h2>PostCategory delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/post-categories/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-categories/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/post-categories/{id}</code></p>
+<!-- END_cd2ccdb1b3ec5eaa77a3bb4d2372b57e -->
+<!-- START_03833cb3e39293ed7d0cc29054304a6c -->
+<h2>Post list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/posts" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 2
+        },
+        "list": [
+            {
+                "categories": "Category 1, Category 2, Category 3",
+                "id": 1,
+                "title": "What is Lorem Ipsum?",
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "image": "http:\/\/api.icm.lk\/images\/post\/777777.jpg",
+                "likes": 0,
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-10 13:14:12"
+            },
+            {
+                "categories": "Category 2, Category 3",
+                "id": 2,
+                "title": "Why do we use it?",
+                "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                "image": "http:\/\/api.icm.lk\/images\/post\/888888.jpg",
+                "likes": 0,
+                "created_at": "2019-07-10 13:14:12",
+                "updated_at": "2019-07-10 13:14:12"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/posts</code></p>
+<!-- END_03833cb3e39293ed7d0cc29054304a6c -->
+<!-- START_8e70bcefa23845c66c0b54e83418572d -->
+<h2>Post get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "title": "AA bb eee",
+        "description": "&lt;p&gt;dd&lt;\/p&gt;",
+        "image": "http:\/\/api.icm.lk\/images\/post\/15622527715d1e15e3d045d.jpg",
+        "likes": 0,
+        "category_id": 1,
+        "created_at": "2019-07-04 15:06:11",
+        "updated_at": "2019-07-04 15:12:29",
+        "categories": [
+            {
+                "id": 2,
+                "name": "Category 2",
+                "created_at": "2019-08-17 23:04:28",
+                "updated_at": "2019-08-17 23:04:28"
+            },
+            {
+                "id": 4,
+                "name": "Category 4",
+                "created_at": "2019-08-17 23:04:28",
+                "updated_at": "2019-08-17 23:04:28"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/posts/{id}</code></p>
+<!-- END_8e70bcefa23845c66c0b54e83418572d -->
+<!-- START_0d45bc18f1b9c67e061c25bfb0998f39 -->
+<h2>Post create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/posts" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"image":"fugit","title":"beatae","description":"eos","category_id":"rem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "image": "fugit",
+    "title": "beatae",
+    "description": "eos",
+    "category_id": "rem"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "title": "2nd post",
+        "description": "&lt;p&gt;test&lt;\/p&gt;",
+        "image": "http:\/\/api.icm.lk\/images\/post\/15622536325d1e1940c17d3.jpg",
+        "updated_at": "2019-07-04 15:20:32",
+        "created_at": "2019-07-04 15:20:32",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/posts</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>required</td>
+<td>Title.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Description.</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>string</td>
+<td>required</td>
+<td>Category ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0d45bc18f1b9c67e061c25bfb0998f39 -->
+<!-- START_7701ec0dbc5596b62f6f0a471b100935 -->
+<h2>Post update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/posts/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"image":"recusandae","title":"deserunt","description":"similique","category_id":"neque"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "image": "recusandae",
+    "title": "deserunt",
+    "description": "similique",
+    "category_id": "neque"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": true
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "title": [
+            "The title field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/posts/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>required</td>
+<td>Title.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Description.</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>string</td>
+<td>required</td>
+<td>Category ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7701ec0dbc5596b62f6f0a471b100935 -->
+<!-- START_cc501e2c0429da2faf513ed6bba06a46 -->
+<h2>Post delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/posts/{id}</code></p>
+<!-- END_cc501e2c0429da2faf513ed6bba06a46 -->
+<!-- START_8bdf23d4bb2d6589e5531b8a00ed937e -->
+<h2>PostComment list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/posts/1/post-comments" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts/1/post-comments");
+
+    let params = {
+            "pid": "deleniti",
+            "page": "20",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 10,
+            "total": 4
+        },
+        "list": [
+            {
+                "id": 6,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:54:18",
+                "updated_at": "2019-07-05 11:54:18",
+                "post_replies": [],
+                "user_detail": {
+                    "first_name": "Client",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            },
+            {
+                "id": 3,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:45:53",
+                "updated_at": "2019-07-05 11:45:53",
+                "post_replies": [
+                    {
+                        "id": 1,
+                        "post_comment_id": 3,
+                        "comment": "reply 1",
+                        "created_at": "2019-07-05 13:41:51",
+                        "updated_at": "2019-07-05 13:41:51",
+                        "user_detail": {
+                            "first_name": "Client",
+                            "last_name": "",
+                            "gender": "male",
+                            "prof_pic": null
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "post_comment_id": 3,
+                        "comment": "reply 3",
+                        "created_at": "2019-07-05 13:42:04",
+                        "updated_at": "2019-07-05 13:42:04",
+                        "user_detail": {
+                            "first_name": "Admin",
+                            "last_name": "",
+                            "gender": "male",
+                            "prof_pic": null
+                        }
+                    }
+                ],
+                "user_detail": {
+                    "first_name": "Client",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            },
+            {
+                "id": 2,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:45:52",
+                "updated_at": "2019-07-05 11:45:52",
+                "post_replies": [],
+                "user_detail": {
+                    "first_name": "Admin",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/posts/{pid}/post-comments</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page number.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8bdf23d4bb2d6589e5531b8a00ed937e -->
+<!-- START_0ee154ec47780dff74375496f6d4a392 -->
+<h2>PostComment delete comment.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/posts/1/post-comments/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/posts/1/post-comments/1");
+
+    let params = {
+            "pid": "laborum",
+            "id": "omnis",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/posts/{pid}/post-comments/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Comment ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0ee154ec47780dff74375496f6d4a392 -->
+<!-- START_5d1a34fe68922f44b417596144db7bc5 -->
+<h2>PostCommentReply delete reply.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/post-comments/1/reply/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/post-comments/1/reply/1");
+
+    let params = {
+            "cid": "deleniti",
+            "id": "quibusdam",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/post-comments/{cid}/reply/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cid</td>
+<td>required</td>
+<td>Post comment ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Reply ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5d1a34fe68922f44b417596144db7bc5 -->
+<!-- START_c1a6978ce8faee03c25510cf7a805a8c -->
+<h2>DashboardImage list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/dashboard-images" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/dashboard-images");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "company 1",
+            "image": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/dashboard\/232323.jpg",
+            "created_at": "2019-06-23 12:00:27",
+            "updated_at": "2019-06-23 12:00:27"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/dashboard-images</code></p>
+<!-- END_c1a6978ce8faee03c25510cf7a805a8c -->
+<!-- START_5a6f2dd0e4127e94ac51ee5e87231991 -->
+<h2>DashboardImage get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/admin/dashboard-images/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/dashboard-images/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 2,
+        "name": "roserbery",
+        "image": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/dashboard\/232323.jpg",
+        "created_at": "2019-06-24 06:52:40",
+        "updated_at": "2019-06-24 06:52:40"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/admin/dashboard-images/{id}</code></p>
+<!-- END_5a6f2dd0e4127e94ac51ee5e87231991 -->
+<!-- START_4b62f4fc895379e9d6c72305b3847850 -->
+<h2>DashboardImage create.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/dashboard-images" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"harum","image":"quisquam"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/dashboard-images");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "harum",
+    "image": "quisquam"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "name": "Lit solutions",
+        "image": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/dashboard\/232323.jpg",
+        "updated_at": "2019-06-23 12:04:40",
+        "created_at": "2019-06-23 12:04:40",
+        "id": 2
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "image": [
+            "The image field is required."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/dashboard-images</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>required</td>
+<td>Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4b62f4fc895379e9d6c72305b3847850 -->
+<!-- START_43c2962d911a3e6952eac85727e9bf99 -->
+<h2>DashboardImage update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/admin/dashboard-images/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"sint","image":"saepe"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/dashboard-images/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "sint",
+    "image": "saepe"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Updated successfully!",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/admin/dashboard-images/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>optional Name.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>file</td>
+<td>optional</td>
+<td>optional Image.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_43c2962d911a3e6952eac85727e9bf99 -->
+<!-- START_902df23ac277f0c7e1950900a7358a37 -->
+<h2>Advertisement delete.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/admin/dashboard-images/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/dashboard-images/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/admin/dashboard-images/{id}</code></p>
+<!-- END_902df23ac277f0c7e1950900a7358a37 -->
+<h1>Auth</h1>
+<!-- START_d5afbe1129f6f5eccd5235d9317b30bf -->
+<h2>User deauthenticate.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/auth/logout" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/auth/logout");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/auth/logout</code></p>
+<!-- END_d5afbe1129f6f5eccd5235d9317b30bf -->
+<!-- START_034fac6053a11b7a6389fd8da063c649 -->
+<h2>Admin user Authenticate.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/auth/login" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"ducimus","password":"accusantium"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/auth/login");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "ducimus",
+    "password": "accusantium"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Token retrieved successfully",
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Email does not exist.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/auth/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+<td>Email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>Password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_034fac6053a11b7a6389fd8da063c649 -->
+<!-- START_f02cc32415e1ef55624d4f4af4308640 -->
+<h2>Admin user deauthenticate.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/admin/auth/logout" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/admin/auth/logout");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/admin/auth/logout</code></p>
+<!-- END_f02cc32415e1ef55624d4f4af4308640 -->
+<!-- START_9518d65b70d30a13b915a5a8df184fd5 -->
+<h2>User Authenticate.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/auth/login" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"libero","password":"tempore","oauth_provider":"laudantium","oauth_uid":"quis","type":"maiores","device_id":"nihil"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/auth/login");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "libero",
+    "password": "tempore",
+    "oauth_provider": "laudantium",
+    "oauth_uid": "quis",
+    "type": "maiores",
+    "device_id": "nihil"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Token retrieved successfully",
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+        "dashboard_img": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/dashboard\/232323.jpg"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Email does not exist.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/auth/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+<td>Email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>Password</td>
+</tr>
+<tr>
+<td>oauth_provider</td>
+<td>string</td>
+<td>required</td>
+<td>'' or facebook or google.</td>
+</tr>
+<tr>
+<td>oauth_uid</td>
+<td>string</td>
+<td>required</td>
+<td>Auth ID.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>required</td>
+<td>Platform (ios or android).</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>string</td>
+<td>required</td>
+<td>Device ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9518d65b70d30a13b915a5a8df184fd5 -->
+<h1>Client</h1>
+<!-- START_605cdc53e7c36bc756aa4518148c2dc0 -->
+<h2>User register.</h2>
+<p><strong>mobile_no</strong> should according to E.164 international format
+Ex: +94775186150 (0775186150, 775186150 are wrong)</p>
+<p>Here if <strong>oauth_provider</strong> and <strong>oauth_uid</strong> is set, <strong>password</strong> not required
+otherwise <strong>password</strong> is required.</p>
+<p>Dob format <code>1990-12-13</code>.</p>
+<p>Gender is an enum which has only <code>male</code> or <code>female</code></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/user" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"first_name":"ad","mobile_no":"maxime","email":"natus","password":"dignissimos","oauth_provider":"quae","oauth_uid":"enim","dob":"recusandae","gender":"voluptatem","referral_point":20,"referral_no":"quaerat"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "first_name": "ad",
+    "mobile_no": "maxime",
+    "email": "natus",
+    "password": "dignissimos",
+    "oauth_provider": "quae",
+    "oauth_uid": "enim",
+    "dob": "recusandae",
+    "gender": "voluptatem",
+    "referral_point": 20,
+    "referral_no": "quaerat"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Registered successfully!",
+    "data": [
+        {
+            "id": 33,
+            "email": "antonlashan12@gmail.com",
+            "mobile_no": "94775186150",
+            "sms_ref_id": "f437c171-2d08-48c8-a4a2-xxxxxxxx",
+            "created_at": "2019-07-24 11:15:06",
+            "updated_at": "2019-07-24 11:15:06",
+            "user_detail": {
+                "first_name": "Anton",
+                "last_name": "",
+                "nic": "",
+                "gender": "male",
+                "dob": "2010-01-01",
+                "birth_district_id": null,
+                "highest_edu_qualification": "",
+                "current_work_place": "",
+                "registration_no": "",
+                "prof_pic": null,
+                "referral_point": 2,
+                "referral_no": "",
+                "created_at": "2019-07-24 11:15:06",
+                "updated_at": "2019-07-24 11:15:06"
+            }
+        }
+    ]
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Validation error",
+    "data": {
+        "mobile_no": [
+            "The mobile no has already been taken."
+        ],
+        "email": [
+            "The email has already been taken."
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/user</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>First name.</td>
+</tr>
+<tr>
+<td>mobile_no</td>
+<td>string</td>
+<td>required</td>
+<td>Mobile number.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Email.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>Password.</td>
+</tr>
+<tr>
+<td>oauth_provider</td>
+<td>string</td>
+<td>required</td>
+<td>'' or facebook or google.</td>
+</tr>
+<tr>
+<td>oauth_uid</td>
+<td>string</td>
+<td>required</td>
+<td>Auth ID.</td>
+</tr>
+<tr>
+<td>dob</td>
+<td>string</td>
+<td>required</td>
+<td>birthday.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>enum</td>
+<td>required</td>
+<td>male or female.</td>
+</tr>
+<tr>
+<td>referral_point</td>
+<td>integer</td>
+<td>optional</td>
+<td>required.</td>
+</tr>
+<tr>
+<td>referral_no</td>
+<td>string</td>
+<td>optional</td>
+<td>max 20.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_605cdc53e7c36bc756aa4518148c2dc0 -->
+<!-- START_215bc6fb4f0fbada720bf87360b1837b -->
+<h2>User verify OTP by phone number.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/user/verify-otp" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"code":"officia","sms_ref_id":"et"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user/verify-otp");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "code": "officia",
+    "sms_ref_id": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "referenceId": "f6eaefa0-ae1c-11e9-a959-dd0d4e395bb7",
+        "code": "36449",
+        "statusCode": "1000",
+        "description": "verification success"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "verification failed",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/user/verify-otp</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>required</td>
+<td>OTP code from sms.</td>
+</tr>
+<tr>
+<td>sms_ref_id</td>
+<td>string</td>
+<td>required</td>
+<td>SMS reference id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_215bc6fb4f0fbada720bf87360b1837b -->
+<!-- START_671848d3e06a2be26edad582f844b082 -->
+<h2>User resend OTP.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/user/resend-otp" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"ducimus"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user/resend-otp");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "ducimus"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 5,
+        "email": "rebecca.hunter@nurse.com",
+        "mobile_no": "94775186150",
+        "sms_ref_id": "6337fca0-ae24-11e9-96e2-19a992bdbfe1",
+        "created_at": "2019-07-24 14:30:52",
+        "updated_at": "2019-07-24 15:04:52"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/user/resend-otp</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Email address.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_671848d3e06a2be26edad582f844b082 -->
+<!-- START_083c72cd47bf3c408ba98fd9a74cb50d -->
+<h2>ForgotPwd send OTP.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/forgot-pwd/send-otp" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"in"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/forgot-pwd/send-otp");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "in"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 5,
+        "email": "rebecca.hunter@nurse.com",
+        "mobile_no": "94775186150",
+        "sms_ref_id": "6337fca0-ae24-11e9-96e2-19a992bdbfe1",
+        "created_at": "2019-07-24 14:30:52",
+        "updated_at": "2019-07-24 15:04:52"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/forgot-pwd/send-otp</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Email address.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_083c72cd47bf3c408ba98fd9a74cb50d -->
+<!-- START_99ee525230dda210236053d0765dc95d -->
+<h2>ForgotPwd verify OTP by phone number.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/forgot-pwd/verify-otp" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"code":"consequatur","sms_ref_id":"ut"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/forgot-pwd/verify-otp");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "code": "consequatur",
+    "sms_ref_id": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "referenceId": "f6eaefa0-ae1c-11e9-a959-dd0d4e395bb7",
+        "code": "36449",
+        "statusCode": "1000",
+        "description": "verification success"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "verification failed",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/forgot-pwd/verify-otp</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>required</td>
+<td>OTP code from sms.</td>
+</tr>
+<tr>
+<td>sms_ref_id</td>
+<td>string</td>
+<td>required</td>
+<td>SMS reference id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_99ee525230dda210236053d0765dc95d -->
+<!-- START_d637c4256b94bb9f30bf6041ccbb4959 -->
+<h2>ForgotPwd resend OTP.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/forgot-pwd/resend-otp" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"dolor"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/forgot-pwd/resend-otp");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "email": "dolor"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 5,
+        "email": "rebecca.hunter@nurse.com",
+        "mobile_no": "94775186150",
+        "sms_ref_id": "6337fca0-ae24-11e9-96e2-19a992bdbfe1",
+        "created_at": "2019-07-24 14:30:52",
+        "updated_at": "2019-07-24 15:04:52"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/forgot-pwd/resend-otp</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Email address.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d637c4256b94bb9f30bf6041ccbb4959 -->
+<!-- START_3b699d2e8f7bca73f29a864954864cbf -->
+<h2>ForgotPwd change password.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/forgot-pwd" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"sms_ref_id":"aliquam","password":"ipsam","password_confirmation":"nesciunt"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/forgot-pwd");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "sms_ref_id": "aliquam",
+    "password": "ipsam",
+    "password_confirmation": "nesciunt"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Password updated successfully.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/forgot-pwd</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sms_ref_id</td>
+<td>string</td>
+<td>required</td>
+<td>SMS reference id.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>New password.</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>string</td>
+<td>required</td>
+<td>Confirmation password.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3b699d2e8f7bca73f29a864954864cbf -->
+<!-- START_93ff612cdccc5678e337d899e1d7893d -->
+<h2>District list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/test-list" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/test-list");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "Ampara"
+        },
+        {
+            "id": 2,
+            "name": "Anuradhapura"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/test-list</code></p>
+<!-- END_93ff612cdccc5678e337d899e1d7893d -->
+<!-- START_1b801ba61d5963e8a15c6b77a410fbcb -->
+<h2>District list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/districts" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/districts");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "Ampara"
+        },
+        {
+            "id": 2,
+            "name": "Anuradhapura"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/districts</code></p>
+<!-- END_1b801ba61d5963e8a15c6b77a410fbcb -->
+<!-- START_d49e542ee26f278830a796a93751f343 -->
+<h2>CompanyPost list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/company-posts" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-posts");
+
+    let params = {
+            "page": "sequi",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 15
+        },
+        "list": [
+            {
+                "id": 15,
+                "company_id": 4,
+                "position": "Room Assistant - Trincomalee",
+                "description": "&lt;p&gt;⇒⇒⇒ අප තරු පන්තියේ හෝටලය සදහා පහත සේවකයින් බදවා ගනු ලැබේ..&lt;\/p&gt;&lt;p&gt;# තනතුර ;&lt;br&gt;➫ Room Boy&amp;nbsp;&lt;br&gt;# අවශ්‍ය සුදුසුකම් ;&lt;\/p&gt;&lt;p&gt;➫ වයස අවු, 18 - 35 අතර බඳවා ගනු ලැබේ.&lt;br&gt;➫ අ.පො.ස (සා \/පෙළ ) සමත් විය යුතුය.&lt;br&gt;➫ ක්‍රියාශීලි අයෙක් විය යුතුය .&lt;br&gt;➫ සාමාන්‍ය ඉංග්‍රීසි දැනුම අනිවාර්ය වේ.&lt;\/p&gt;&lt;p&gt;➫ ආහාර, නවාතැන් පහසුකම් නොමිලේ.&lt;br&gt;➫ වැටුප රු.35,000 වැඩි&amp;nbsp;&lt;br&gt;➫ ETF\/ EPF ඇතුළු දිරි දීමනා රැසක්.&lt;\/p&gt;&lt;p&gt;☞ ඉහත සුදුසුකම් සපුරාලු ඔබ , අදම අපගේ පහත අංකයට අමතන්න.&lt;\/p&gt;&lt;p&gt;&amp;nbsp;&lt;\/p&gt;&lt;p&gt;&lt;br&gt;&amp;nbsp;&lt;\/p&gt;",
+                "created_at": "2019-07-13 10:34:32",
+                "updated_at": "2019-07-13 10:34:32",
+                "applied_status": null,
+                "has_bookmarked": false,
+                "company": {
+                    "id": 4,
+                    "name": "Medical center at Mount Lavinia",
+                    "logo": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/15636318485d3320e89ad55.jpg",
+                    "banner": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/15635268375d3186b53f18e.jpg",
+                    "address": "Galle Road, Mt. Lavinia, Sri Lanka",
+                    "phone": "123456231",
+                    "email": "mount@parmacy.com",
+                    "created_at": "2019-07-13 10:23:08",
+                    "updated_at": "2019-07-20 14:10:48"
+                }
+            },
+            {
+                "id": 14,
+                "company_id": 2,
+                "position": "HR Executive - Gampaha",
+                "description": "&lt;p&gt;# POSITION: HR Executive&lt;br&gt;# REQUIREMENTS:&lt;br&gt;• HR Professional qualification from a recognized Institute.&amp;nbsp;&lt;br&gt;• Age below 25 - 30 years.&amp;nbsp;&lt;br&gt;• Computer literacy.&lt;br&gt;• A minimum of 1-2 years’ work experience in HR field.&amp;nbsp;&lt;br&gt;• Excellent Communication Skills.&lt;br&gt;• A pleasing personality with hands on experience on recruitment, a positive attitude, high on initiative, proactive thinking and the ability on multi-tasking&amp;nbsp;&lt;br&gt;Attractive remuneration package on par with other fringe benefits.&lt;br&gt;# HOW TO APPLY:&lt;br&gt;Please send your resume stating the position applied on the subject line of e-mail with details of two non- related referees within 14 days of this advertisement&lt;br&gt;If you feel you are the right individual for the above position, then apply via \"Apply for this job\" of this advert with your RESUME.&lt;\/p&gt;&lt;p&gt;&amp;nbsp;&lt;\/p&gt;&lt;p&gt;See less&lt;\/p&gt;",
+                "created_at": "2019-07-13 10:34:02",
+                "updated_at": "2019-07-13 10:34:02",
+                "applied_status": null,
+                "has_bookmarked": false,
+                "company": {
+                    "id": 2,
+                    "name": "Wellfort Management Pvt Ltd",
+                    "logo": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/15643103865d3d7b726e5bd.jpg",
+                    "banner": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/111111.jpg",
+                    "address": "Colombo",
+                    "phone": "0777222963",
+                    "email": "test@wellfort.com",
+                    "created_at": "2019-07-10 23:44:12",
+                    "updated_at": "2019-07-28 10:39:46"
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/company-posts</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d49e542ee26f278830a796a93751f343 -->
+<!-- START_794fbadf4d45cfe9cbc32dad7bb77370 -->
+<h2>CompanyPost get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/company-posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "company_id": 1,
+        "position": "Nurse (Female\/Male) - Colombo 5",
+        "description": "Description",
+        "created_at": "2019-06-27 17:14:10",
+        "updated_at": "2019-06-27 17:14:10",
+        "applied_status": "pending",
+        "has_bookmarked": true,
+        "company": {
+            "id": 1,
+            "name": "Asiri Hospital Holdings Pvt Ltd",
+            "image": "http:\/\/api.icm.lk\/images\/company\/111111.jpg",
+            "address": "Colombo 5",
+            "phone": "2575637401",
+            "email": "test@chapman.com",
+            "created_at": "2019-06-27 17:14:10",
+            "updated_at": "2019-06-27 17:14:10"
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/company-posts/{id}</code></p>
+<!-- END_794fbadf4d45cfe9cbc32dad7bb77370 -->
+<!-- START_01269655806ce0b2d5b51531963be953 -->
+<h2>Advertisement list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/advertisements" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/advertisements");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 2,
+            "name": "Image 2",
+            "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291227.jpg",
+            "created_at": "2019-06-23 12:00:27",
+            "updated_at": "2019-06-23 12:00:27"
+        },
+        {
+            "id": 1,
+            "name": "Image 1",
+            "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291480.jpg",
+            "created_at": "2019-06-23 12:04:40",
+            "updated_at": "2019-06-23 12:04:40"
+        },
+        {
+            "id": 3,
+            "name": "Image 3",
+            "image": "http:\/\/api.icm.lk\/images\/advertisement\/1561291485.jpg",
+            "created_at": "2019-06-23 12:04:40",
+            "updated_at": "2019-06-23 12:04:40"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/advertisements</code></p>
+<!-- END_01269655806ce0b2d5b51531963be953 -->
+<!-- START_fc30b1f5a8def4c60b020bf4ada2c8f5 -->
+<h2>CompanyPostBookmark list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/company-post-bookmarks" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-post-bookmarks");
+
+    let params = {
+            "page": "animi",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 10,
+            "total": 1
+        },
+        "list": [
+            {
+                "id": 5,
+                "company_post_id": 3,
+                "company_post": {
+                    "id": 3,
+                    "company_id": 5,
+                    "position": "test",
+                    "description": "test2",
+                    "created_at": "2019-06-24 07:19:23",
+                    "updated_at": "2019-06-25 18:52:01",
+                    "company": {
+                        "id": 1,
+                        "name": "Asiri Hospital Holdings Pvt Ltd",
+                        "logo": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/111111.jpg",
+                        "banner": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/15641511165d3b0d4c1c7de.jpeg",
+                        "address": "Colombo 5",
+                        "phone": "2575637401",
+                        "email": "test@chapman.com",
+                        "created_at": "2019-07-10 23:44:12",
+                        "updated_at": "2019-07-26 14:25:16"
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/company-post-bookmarks</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fc30b1f5a8def4c60b020bf4ada2c8f5 -->
+<!-- START_21cd3a58f6770ff981f392b75e7c754a -->
+<h2>CompanyPostBookmark bookmark.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/company-post-bookmarks" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"company_post_id":2}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-post-bookmarks");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "company_post_id": 2
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "id": 5,
+        "company_post_id": 3
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/company-post-bookmarks</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_post_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Company post ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_21cd3a58f6770ff981f392b75e7c754a -->
+<!-- START_cb552588550e4cb3915a14502387ada0 -->
+<h2>CompanyPostApplication list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/company-post-applications" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-post-applications");
+
+    let params = {
+            "page": "quia",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 10,
+            "total": 1
+        },
+        "list": [
+            {
+                "id": 5,
+                "company_post_id": 3,
+                "status": "pending",
+                "company_post": {
+                    "id": 3,
+                    "company_id": 5,
+                    "position": "test",
+                    "description": "test2",
+                    "created_at": "2019-06-24 07:19:23",
+                    "updated_at": "2019-06-25 18:52:01",
+                    "company": {
+                        "id": 1,
+                        "name": "Asiri Hospital Holdings Pvt Ltd",
+                        "logo": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/111111.jpg",
+                        "banner": "http:\/\/api.icm.lk\/thumb\/w2000\/images\/company\/15641511165d3b0d4c1c7de.jpeg",
+                        "address": "Colombo 5",
+                        "phone": "2575637401",
+                        "email": "test@chapman.com",
+                        "created_at": "2019-07-10 23:44:12",
+                        "updated_at": "2019-07-26 14:25:16"
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/company-post-applications</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_cb552588550e4cb3915a14502387ada0 -->
+<!-- START_e43ec49da327be5e3ffd49cefa2ed09d -->
+<h2>CompanyPostApplication apply.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/company-post-applications/apply" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"company_post_id":8}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-post-applications/apply");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "company_post_id": 8
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "You can apply for this post.",
+    "data": true
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "User already applied.",
+    "data": null
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Please complete your profile.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/company-post-applications/apply</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_post_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Company post ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e43ec49da327be5e3ffd49cefa2ed09d -->
+<!-- START_a504da341e27b030b50a82541471b45a -->
+<h2>CompanyPostApplication confirm.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/company-post-applications/confirm" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"company_post_id":6}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/company-post-applications/confirm");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "company_post_id": 6
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Created successfully!",
+    "data": {
+        "company_post_id": "2",
+        "updated_at": "2019-06-27 16:51:21",
+        "created_at": "2019-06-27 16:51:21",
+        "id": 1
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "User already applied.",
+    "data": null
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Please complete your profile.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/company-post-applications/confirm</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_post_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Company post ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a504da341e27b030b50a82541471b45a -->
+<!-- START_4191347324a0c063ce6ffd56dc118fb6 -->
+<h2>User get profile.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/user" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "first_name": "Lashan",
+        "last_name": "Fernando",
+        "nic": "198516003220",
+        "gender": "male",
+        "dob": "1985-06-08",
+        "birth_district_id": 15,
+        "highest_edu_qualification": "Bsc",
+        "current_work_place": "Negombo",
+        "registration_no": "123356778",
+        "prof_pic": "http:\/\/api.icm.lk\/images\/user\/1561291480.jpg",
+        "professional": "",
+        "vtc": "",
+        "referral_point": 2,
+        "referral_point_lbl": "Social media",
+        "referral_no": "",
+        "created_at": "2019-07-02 09:37:20",
+        "updated_at": "2019-07-02 11:32:54",
+        "user_qualifications": {
+            "a_level": [
+                {
+                    "id": 28,
+                    "name": "Maths",
+                    "grade": "A",
+                    "type": "a_level"
+                },
+                {
+                    "id": 29,
+                    "name": "Physics",
+                    "grade": "B",
+                    "type": "a_level"
+                },
+                {
+                    "id": 30,
+                    "name": "Chemistry",
+                    "grade": "C",
+                    "type": "a_level"
+                }
+            ],
+            "o_level": [
+                {
+                    "id": 31,
+                    "name": "Sinhala",
+                    "grade": "A",
+                    "type": "o_level"
+                },
+                {
+                    "id": 32,
+                    "name": "Maths",
+                    "grade": "A",
+                    "type": "o_level"
+                },
+                {
+                    "id": 33,
+                    "name": "Science",
+                    "grade": "B",
+                    "type": "o_level"
+                },
+                {
+                    "id": 34,
+                    "name": "English",
+                    "grade": "C",
+                    "type": "o_level"
+                }
+            ]
+        },
+        "user": {
+            "id": 3,
+            "email": "john.edmunds@nurse.com",
+            "mobile_no": "1234567892",
+            "sms_ref_id": "",
+            "created_at": "2019-08-17 10:54:05",
+            "updated_at": "2019-08-17 11:02:21"
+        },
+        "district": {
+            "id": 15,
+            "name": "Mannar"
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/user</code></p>
+<!-- END_4191347324a0c063ce6ffd56dc118fb6 -->
+<!-- START_548eb5fce4d40bdfa62163a8426cdc8e -->
+<h2>User profile update.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/user" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"first_name":"ex","last_name":"vel","nic":"et","dob":"voluptates","gender":"iste","birth_district_id":6,"highest_edu_qualification":"itaque","current_work_place":"id","a_level":[],"o_level":[],"professional":"repellendus","vtc":"accusantium","_method":"eos"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "first_name": "ex",
+    "last_name": "vel",
+    "nic": "et",
+    "dob": "voluptates",
+    "gender": "iste",
+    "birth_district_id": 6,
+    "highest_edu_qualification": "itaque",
+    "current_work_place": "id",
+    "a_level": [],
+    "o_level": [],
+    "professional": "repellendus",
+    "vtc": "accusantium",
+    "_method": "eos"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Profile updated successfully.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/user</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>First name.</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>optional</td>
+<td>Last name.</td>
+</tr>
+<tr>
+<td>nic</td>
+<td>string</td>
+<td>required</td>
+<td>NIC.</td>
+</tr>
+<tr>
+<td>dob</td>
+<td>string</td>
+<td>required</td>
+<td>DOB(1985-01-01).</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>enum</td>
+<td>required</td>
+<td>male or female.</td>
+</tr>
+<tr>
+<td>birth_district_id</td>
+<td>integer</td>
+<td>required</td>
+<td>District ID.</td>
+</tr>
+<tr>
+<td>highest_edu_qualification</td>
+<td>string</td>
+<td>required</td>
+<td>Highest education qualification.</td>
+</tr>
+<tr>
+<td>current_work_place</td>
+<td>string</td>
+<td>optional</td>
+<td>Current work place.</td>
+</tr>
+<tr>
+<td>a_level</td>
+<td>array</td>
+<td>required</td>
+<td>A level results [{&quot;name&quot;: &quot;Sinhala&quot;, &quot;grade&quot;: &quot;A&quot;}, {&quot;name&quot;: &quot;CHEM&quot;, &quot;grade&quot;: &quot;B&quot;}].</td>
+</tr>
+<tr>
+<td>o_level</td>
+<td>array</td>
+<td>required</td>
+<td>O level results [{&quot;name&quot;: &quot;Maths&quot;, &quot;grade&quot;: &quot;A&quot;}].</td>
+</tr>
+<tr>
+<td>professional</td>
+<td>string</td>
+<td>optional</td>
+<td>Professional exam results.</td>
+</tr>
+<tr>
+<td>vtc</td>
+<td>string</td>
+<td>optional</td>
+<td>VTC exam results.</td>
+</tr>
+<tr>
+<td>_method</td>
+<td>string</td>
+<td>required</td>
+<td>_method=PUT.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_548eb5fce4d40bdfa62163a8426cdc8e -->
+<!-- START_327017b7d3bd54e2dc74eeedba8607be -->
+<h2>User update profile pic.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/user/profile-pic" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"prof_pic":"voluptatibus","_method":"nostrum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user/profile-pic");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "prof_pic": "voluptatibus",
+    "_method": "nostrum"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Uploaded successfully!",
+    "data": {
+        "first_name": "Client",
+        "last_name": "",
+        "nic": "",
+        "gender": "male",
+        "dob": "1985-01-02",
+        "birth_district_id": null,
+        "highest_edu_qualification": "",
+        "current_work_place": "",
+        "registration_no": "",
+        "prof_pic": "http:\/\/api.icm.lk\/images\/user\/15621426975d1c67e9da92a.png",
+        "created_at": "2019-07-03 08:19:36",
+        "updated_at": "2019-07-03 08:31:37"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/user/profile-pic</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prof_pic</td>
+<td>file</td>
+<td>required</td>
+<td>Profile image.</td>
+</tr>
+<tr>
+<td>_method</td>
+<td>string</td>
+<td>required</td>
+<td>_method=PUT.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_327017b7d3bd54e2dc74eeedba8607be -->
+<!-- START_836df5ac8944b91ec5aa4805a5f98e16 -->
+<h2>User change password.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/user/update-pwd" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"password_current":"omnis","password":"beatae","password_confirmation":"enim"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user/update-pwd");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "password_current": "omnis",
+    "password": "beatae",
+    "password_confirmation": "enim"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Password updated successfully.",
+    "data": null
+}</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": false,
+    "message": "Current password not matched.",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/user/update-pwd</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password_current</td>
+<td>string</td>
+<td>required</td>
+<td>Current password.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>New password.</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>string</td>
+<td>required</td>
+<td>Confirmation password.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_836df5ac8944b91ec5aa4805a5f98e16 -->
+<!-- START_5f63c2ed6017ee7e43dfae2744bad67d -->
+<h2>User get referral points.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/user/referral-points" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/user/referral-points");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "label": "Agent"
+        },
+        {
+            "id": 2,
+            "label": "Social Media"
+        },
+        {
+            "id": 3,
+            "label": "Campaign"
+        },
+        {
+            "id": 4,
+            "label": "News Paper"
+        },
+        {
+            "id": 5,
+            "label": "Other"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/user/referral-points</code></p>
+<!-- END_5f63c2ed6017ee7e43dfae2744bad67d -->
+<!-- START_f3f045236adc44491bbc2ded30db5c82 -->
+<h2>News list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/news" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/news");
+
+    let params = {
+            "page": "rerum",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 2
+        },
+        "list": [
+            {
+                "id": 1,
+                "title": "Hemasiri, Pujith further remanded",
+                "desc_1": "&lt;p&gt;Former Defence Secretary Hemasiri Fernando and IGP Pujith Jayasundara, who were arrested by the CID at the Colombo National Hospital yesterday, were further remanded until July 9 by Colombo Chief Magistrate Lanka Jayaratne.&lt;\/p&gt;",
+                "desc_2": "&lt;p&gt;Former Defence Secretary Hemasiri Fernando and IGP Pujith Jayasundara, who were arrested by the CID at the Colombo National Hospital yesterday, were further remanded until July 9 by Colombo Chief Magistrate Lanka Jayaratne. (Shehan Chamika Silva)&lt;\/p&gt;",
+                "image": "http:\/\/api.icm.lk\/images\/news\/333333.jpg",
+                "is_featured": false,
+                "created_at": "2019-07-03 13:32:33",
+                "updated_at": "2019-07-03 13:59:37"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/news</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page id.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f3f045236adc44491bbc2ded30db5c82 -->
+<!-- START_9ba03ffcd779eef328818901723135ad -->
+<h2>News get featured news.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/news/featured-news" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/news/featured-news");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful!",
+    "data": {
+        "title": "Leaving for UN missions",
+        "desc_1": "&lt;p&gt;A new contingent of 61 Army personnel including 11officers under the phase six of the UN Mission of South Sudan (UNMISS),&amp;nbsp;&lt;\/p&gt;",
+        "desc_2": "&lt;p&gt;left this morning for South Sudan to serve in the SRIMED Level 2 Hospital in Bor, South Sudan.&lt;strong&gt; Pix by Army Media&lt;\/strong&gt;&lt;\/p&gt;",
+        "is_featured": true,
+        "image": "http:\/\/api.icm.lk\/images\/news\/15621633705d1cb8aaa831d.jpg",
+        "updated_at": "2019-07-03 14:16:10",
+        "created_at": "2019-07-03 14:16:10",
+        "id": 3
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/news/featured-news</code></p>
+<!-- END_9ba03ffcd779eef328818901723135ad -->
+<!-- START_bc971799932058fb11b93c43ed0598de -->
+<h2>PostCategory list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/post-categories" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/post-categories");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 1,
+            "name": "Cat 3",
+            "created_at": "2019-07-04 13:40:19",
+            "updated_at": "2019-07-04 13:43:56"
+        },
+        {
+            "id": 2,
+            "name": "Cate 2",
+            "created_at": "2019-07-04 13:47:33",
+            "updated_at": "2019-07-04 13:47:33"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/post-categories</code></p>
+<!-- END_bc971799932058fb11b93c43ed0598de -->
+<!-- START_2209ecf6aba23bb5213e50c5064981ff -->
+<h2>Post list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/posts" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts");
+
+    let params = {
+            "category_id": "est",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 1
+        },
+        "list": [
+            {
+                "id": 1,
+                "title": "AA bb eee",
+                "description": "&lt;p&gt;dd&lt;\/p&gt;",
+                "image": "http:\/\/api.icm.lk\/images\/post\/15622527715d1e15e3d045d.jpg",
+                "likes": 2,
+                "category_id": 1,
+                "created_at": "2019-07-04 15:06:11",
+                "updated_at": "2019-07-04 15:12:29",
+                "has_liked": true,
+                "categories": [
+                    {
+                        "id": 2,
+                        "name": "Category 2",
+                        "created_at": "2019-08-17 23:04:28",
+                        "updated_at": "2019-08-17 23:04:28"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Category 5",
+                        "created_at": "2019-08-17 23:04:28",
+                        "updated_at": "2019-08-17 23:04:28"
+                    }
+                ]
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/posts</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category_id</td>
+<td>optional</td>
+<td>Category ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2209ecf6aba23bb5213e50c5064981ff -->
+<!-- START_dc4af656ff7577d936584f4332a92811 -->
+<h2>Post get record.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/posts/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "title": "AA bb eee",
+        "description": "&lt;p&gt;dd&lt;\/p&gt;",
+        "image": "http:\/\/api.icm.lk\/images\/post\/15622527715d1e15e3d045d.jpg",
+        "likes": 0,
+        "category_id": 1,
+        "created_at": "2019-07-04 15:06:11",
+        "updated_at": "2019-07-04 15:12:29",
+        "has_liked": true,
+        "categories": [
+            {
+                "id": 2,
+                "name": "Category 2",
+                "created_at": "2019-08-17 23:04:28",
+                "updated_at": "2019-08-17 23:04:28"
+            },
+            {
+                "id": 5,
+                "name": "Category 5",
+                "created_at": "2019-08-17 23:04:28",
+                "updated_at": "2019-08-17 23:04:28"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/posts/{id}</code></p>
+<!-- END_dc4af656ff7577d936584f4332a92811 -->
+<!-- START_b382955f2f4b169cc3f468b44b032333 -->
+<h2>Post hit like.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/posts/1/like" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/like");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "likes": 2
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/posts/{id}/like</code></p>
+<!-- END_b382955f2f4b169cc3f468b44b032333 -->
+<!-- START_80629e71e9ce0b71edefafa95dbdbe99 -->
+<h2>Post hit dislike.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/posts/1/dislike" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/dislike");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 1,
+        "likes": 0
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/posts/{id}/dislike</code></p>
+<!-- END_80629e71e9ce0b71edefafa95dbdbe99 -->
+<!-- START_f4cacb6cc3dd297ac3b5afc115328960 -->
+<h2>PostComment list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/posts/1/post-comments" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/post-comments");
+
+    let params = {
+            "pid": "iure",
+            "page": "6",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 1,
+            "current_page": 1,
+            "per_page": 10,
+            "total": 4
+        },
+        "list": [
+            {
+                "id": 6,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:54:18",
+                "updated_at": "2019-07-05 11:54:18",
+                "can_edit": true,
+                "post_replies": [],
+                "user_detail": {
+                    "first_name": "Client",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            },
+            {
+                "id": 3,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:45:53",
+                "updated_at": "2019-07-05 11:45:53",
+                "can_edit": true,
+                "post_replies": [
+                    {
+                        "id": 1,
+                        "post_comment_id": 3,
+                        "comment": "reply 1",
+                        "created_at": "2019-07-05 13:41:51",
+                        "updated_at": "2019-07-05 13:41:51",
+                        "can_edit": true,
+                        "user_detail": {
+                            "first_name": "Client",
+                            "last_name": "",
+                            "gender": "male",
+                            "prof_pic": null
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "post_comment_id": 3,
+                        "comment": "reply 3",
+                        "created_at": "2019-07-05 13:42:04",
+                        "updated_at": "2019-07-05 13:42:04",
+                        "can_edit": false,
+                        "user_detail": {
+                            "first_name": "Admin",
+                            "last_name": "",
+                            "gender": "male",
+                            "prof_pic": null
+                        }
+                    }
+                ],
+                "user_detail": {
+                    "first_name": "Client",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            },
+            {
+                "id": 2,
+                "post_id": 1,
+                "comment": "test",
+                "created_at": "2019-07-05 11:45:52",
+                "updated_at": "2019-07-05 11:45:52",
+                "can_edit": false,
+                "post_replies": [],
+                "user_detail": {
+                    "first_name": "Admin",
+                    "last_name": "",
+                    "gender": "male",
+                    "prof_pic": null
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/posts/{pid}/post-comments</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>optional</td>
+<td>Page number.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f4cacb6cc3dd297ac3b5afc115328960 -->
+<!-- START_b67c552fec92fc0cec84bf5d7c195fea -->
+<h2>PostComment add comment.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/posts/1/post-comments" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"est"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/post-comments");
+
+    let params = {
+            "pid": "et",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "comment": "est"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "post_id": 1,
+        "comment": "test",
+        "updated_at": "2019-07-05 11:46:24",
+        "created_at": "2019-07-05 11:46:24",
+        "id": 5
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/posts/{pid}/post-comments</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>required</td>
+<td>Comment.</td>
+</tr>
+</tbody>
+</table>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b67c552fec92fc0cec84bf5d7c195fea -->
+<!-- START_1ddf9463d71a1caee316bb5f43206a43 -->
+<h2>PostComment update comment.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/posts/1/post-comments/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"iste","_method":"sit"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/post-comments/1");
+
+    let params = {
+            "pid": "nostrum",
+            "id": "vel",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "comment": "iste",
+    "_method": "sit"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "post_id": 1,
+        "comment": "test",
+        "updated_at": "2019-07-05 11:46:24",
+        "created_at": "2019-07-05 11:46:24",
+        "id": 5
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/posts/{pid}/post-comments/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>required</td>
+<td>Comment.</td>
+</tr>
+<tr>
+<td>_method</td>
+<td>string</td>
+<td>required</td>
+<td>_method=PUT.</td>
+</tr>
+</tbody>
+</table>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Comment ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_1ddf9463d71a1caee316bb5f43206a43 -->
+<!-- START_b555f2579901402684d73ae7cf59da4a -->
+<h2>PostComment delete comment.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/posts/1/post-comments/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/posts/1/post-comments/1");
+
+    let params = {
+            "pid": "cumque",
+            "id": "ut",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/posts/{pid}/post-comments/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pid</td>
+<td>required</td>
+<td>Post ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Comment ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b555f2579901402684d73ae7cf59da4a -->
+<!-- START_fe2d9edc3185f2e991497956fe755650 -->
+<h2>PostCommentReply add reply comment.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "/v1/post-comments/1/reply" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"voluptatem"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/post-comments/1/reply");
+
+    let params = {
+            "cid": "vitae",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "comment": "voluptatem"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "post_comment_id": 3,
+        "comment": "reply 5",
+        "updated_at": "2019-07-05 13:46:31",
+        "created_at": "2019-07-05 13:46:31",
+        "id": 4
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /v1/post-comments/{cid}/reply</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>required</td>
+<td>Reply comment.</td>
+</tr>
+</tbody>
+</table>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cid</td>
+<td>required</td>
+<td>Comment ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fe2d9edc3185f2e991497956fe755650 -->
+<!-- START_d0544cdb042d3862686724950d5d3a08 -->
+<h2>PostCommentReply update reply.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/post-comments/1/reply/1" \
+    -H "Authorization: Bearer {token}" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"quo","_method":"adipisci"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/post-comments/1/reply/1");
+
+    let params = {
+            "cid": "perferendis",
+            "id": "vel",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "comment": "quo",
+    "_method": "adipisci"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "id": 2,
+        "post_comment_id": 3,
+        "comment": "reply 3 edit",
+        "created_at": "2019-07-05 13:41:56",
+        "updated_at": "2019-07-05 13:43:03"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/post-comments/{cid}/reply/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td>string</td>
+<td>required</td>
+<td>Reply comment.</td>
+</tr>
+<tr>
+<td>_method</td>
+<td>string</td>
+<td>required</td>
+<td>_method=PUT.</td>
+</tr>
+</tbody>
+</table>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cid</td>
+<td>required</td>
+<td>Post comment ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Reply ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d0544cdb042d3862686724950d5d3a08 -->
+<!-- START_1dbe98ff3ab0bfbbccae6fc0de5bba57 -->
+<h2>PostCommentReply delete reply.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "/v1/post-comments/1/reply/1" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/post-comments/1/reply/1");
+
+    let params = {
+            "cid": "est",
+            "id": "vitae",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": null
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE /v1/post-comments/{cid}/reply/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cid</td>
+<td>required</td>
+<td>Post comment ID.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Reply ID.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_1dbe98ff3ab0bfbbccae6fc0de5bba57 -->
+<!-- START_ea085ad0b163cdb581766cef27656644 -->
+<h2>Notification list.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/notifications" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/notifications");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": {
+        "paginator": {
+            "pages": 2,
+            "current_page": 1,
+            "per_page": 20,
+            "total": 28
+        },
+        "list": [
+            {
+                "id": 38,
+                "type": "create_new_post",
+                "type_id": 34,
+                "parameters": {
+                    "post_id": 34
+                },
+                "title": "Job post",
+                "body": "We found your perfect match at company Apply Now!",
+                "unread": 1,
+                "created_at": "2019-09-05 20:26:54",
+                "updated_at": "2019-09-05 20:26:54"
+            },
+            {
+                "id": 37,
+                "type": "create_new_post",
+                "type_id": 33,
+                "parameters": {
+                    "post_id": 33
+                },
+                "title": "Job post",
+                "body": "We found your perfect match at company Apply Now!",
+                "unread": 1,
+                "created_at": "2019-09-05 20:26:46",
+                "updated_at": "2019-09-05 20:26:46"
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/notifications</code></p>
+<!-- END_ea085ad0b163cdb581766cef27656644 -->
+<!-- START_6609b27a8534c63247769f32ad889ef1 -->
+<h2>Notification unread count.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "/v1/notifications/unread-count" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/notifications/unread-count");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": 4
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /v1/notifications/unread-count</code></p>
+<!-- END_6609b27a8534c63247769f32ad889ef1 -->
+<!-- START_7f2d22acc8cf40df35fbbfff9c027fcb -->
+<h2>Notification read.</h2>
+<p>Even this is a <strong>PUT</strong> request you have to send this as a <strong>POST</strong> request
+because of <code>lumen</code> doesn't support form data via <strong>PUT</strong> request</p>
+<p>So we have to pass additional field with <strong>POST</strong> request.</p>
+<p><code>_method=PUT</code> and rest of the following fields</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "/v1/notifications/read" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<pre><code class="language-javascript">const url = new URL("/v1/notifications/read");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "message": "Successful",
+    "data": 4
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT /v1/notifications/read</code></p>
+<!-- END_7f2d22acc8cf40df35fbbfff9c027fcb -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
